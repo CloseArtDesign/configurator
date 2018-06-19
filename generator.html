@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html dir="ltr">
 <head>
 <meta charset="utf-8">
@@ -185,24 +185,24 @@ textarea:focus + .description {display:block}
 <body>
 
 <div class="config-group">
-    <h2>Widget Configurator</h2>
+    <h2>Series Info - Configurator</h2>
     <form action="#" name="config">
-        <input type="text" name="f1" value="http://closeart-recruitbt.blogspot.com" style="display:none;">
+        <input type="text" name="f1" value="http://closeart-id.blogspot.com" style="display:none;">
         <table border="0">
             <tbody>
                 <tr><th colspan="2" class="configurator-header">General Configuration</th></tr>
                 <!-- tr><th>Blog URL:</th><td><input type="text" name="f1" value="http://"></td></tr -->
-                <tr><th>Related Post Style:</th><td>
+                <tr><th>Series Info Style:</th><td>
                     <select name="f10">
-                        <option value="1" selected>Style 1 = Post Title List</option>
-                        <option value="2">Style 2 = Post Thumbnail with Summary</option>
-                        <option value="3">Style 3 = Post Thumbnail with Post Title</option>
+                        <option value="1" selected>Style 1 = Tanpa Background (Transparan)</option>
+                        <option value="2">Style 2 = Background Putih</option>
+                        <option value="3">Style 3 = Background Hitam</option>
                         <option value="4">Style 4 = Post Thumbnail with Tooltip Hover</option>
                         <option value="5">Style 5 = Post Thumbnail with Title Overlay Hover</option>
                         <option value="6">Style 6 = Post Title List with Tooltip Hover</option>
                     </select>
                 </td></tr>
-                <tr><th>Widget Title:</th><td><input type="text" name="f2" value="Related Post:"><em class="description">Define your related post widget title.</em></td></tr>
+                <tr><th>Judul Alternatif :</th><td><input type="text" name="f2" value="My Little Monster"><em class="description">Input judul alternatif dari series yang ingin di post.</em></td></tr>
                 <tr><th>Number of Posts to Display:</th><td><input type="text" name="f3" value="5"><em class="description">How many post(s) you want to display in this widget.</em></td></tr>
                 <tr><th>Summary Length:</th><td><input type="text" name="f4" value="370"><em class="description">Length of the post summary (for <b>Post Thumbnail with Summary</b> style only).</em></td></tr>
                 <tr><th>Post Title Length:</th><td><input type="text" name="f5" value="auto"><em class="description">Change the value into number to crop the post title characters that&rsquo;s too long.</em></td></tr>
@@ -311,7 +311,7 @@ function submitConfig() {
     result.innerHTML = '<h4>Widget Preview:</h4>' + (form.g0.checked ? style.replace(BIF_START, "").replace(BIF_END, "") : style).replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&') + '<div id="' + form.f7.value.replace(/%i/g, 0) + '" class="related-post"><em style="color:green;">Loading preview...</em></div>';
     relatedPostConfig = {
         homePage: (form.f1.value.length && (form.f1.value.indexOf('://') !== -1 || form.f1.value.indexOf('//') === 0)) ? form.f1.value : '&lt;data:blog.homepageUrl/&gt;',
-        widgetTitle: form.f2.value.length > 0 ? '<h4>' + form.f2.value + '</h4>' : "",
+        widgetTitle: form.f2.value.length > 0 ? '<div class="alt-title" title="Judul Alternatif"><div>'+ form.f2.value +'</div></div>' : "",
         numPosts: parseInt(form.f3.value, 10),
         summaryLength: parseInt(form.f4.value, 10),
         titleLength: form.f5.value != "auto" ? parseInt(form.f5.value, 10) : "auto",
